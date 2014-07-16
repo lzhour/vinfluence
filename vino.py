@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, request, flash, session
 import model
 import jinja2
 
+
 app = Flask(__name__)
 app.secret_key = '\xf5!\x07!qj\xa4\x08\xc6\xf8\n\x8a\x95m\xe2\x04g\xbb\x98|U\xa2f\x03'
 app.jinja_env.undefined = jinja2.StrictUndefined
@@ -22,8 +23,7 @@ def index():
 
 @app.route("/white")
 def white_wine():
-    """This is the white wine page."""
-    # ratings_object = model.dbsession.query(model.Ratings).filter_by(user_id=session['userid']).all() 
+    """This is the white wine page.""" 
     return redirect("/white")
 
 # @app.route("/varietal")
