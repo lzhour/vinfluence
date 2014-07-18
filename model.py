@@ -16,7 +16,6 @@ dbsession = scoped_session(sessionmaker(bind = ENGINE,
 Base = declarative_base()
 Base.query = dbsession.query_property()
 
-### Class declarations go here
 class WineObject(Base):
     __tablename__ = "wineobject"
 
@@ -31,10 +30,14 @@ class WineObject(Base):
     fruit_pairing = Column(String(200), nullable=True)
     flavor_pairing = Column(String(200), nullable=True)
 
-
+    __tablename__ = "varietal"
 def createTable():
     Base.metadata.create_all(ENGINE)
 
+# def get_wine_type(wine_type):
+#     cursor = connect()
+#     query = """SELECT varietal FROM wineobject WHERE wine_type = ?;"""
+    
 def connect():
     global dbsession
     return dbsession()
