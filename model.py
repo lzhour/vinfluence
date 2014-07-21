@@ -29,8 +29,8 @@ class WineObject(Base):
     food_pairing = Column(String(200), nullable=True)
     fruit_pairing = Column(String(200), nullable=True)
     flavor_pairing = Column(String(200), nullable=True)
+    img_path = Column(String(100), nullable=True)
 
-    __tablename__ = "varietal"
 def createTable():
     Base.metadata.create_all(ENGINE)
 
