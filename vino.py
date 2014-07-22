@@ -11,26 +11,14 @@ def index():
     """This is the cover page of the Vinfluence web app."""
     return render_template("index.html")
 
-# @app.route("type/<str:varietal_type>")
-# def show_wine_type():
-#       wine_type = model.wine_object
-#       query the database for one varietal and get some information about
-#       do something with the data? maybe
-#     return render_template("type/<str:varietal_type>.html", data_for_html=datad)
+@app.route("/type/<wine_type>")
+def show_wine_type(wine_type):
+    varietal_list = model.get_wine_types(wine_type)
+    return render_template("/type.html", varietal_object=varietal_list)
 
 # @app.route("/login")
 # def login():
 #     return render_template("login.html")
-
-# @app.route("/red")
-# def sign_up():
-#     return render_template("red.html")
-
-# @app.route("/white")
-# def white_wine():
-#     """This is the white wine page.""" 
-#     return render_template("white.html")
-
 
 
 if __name__ == "__main__":

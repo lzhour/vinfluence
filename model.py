@@ -34,9 +34,11 @@ class WineObject(Base):
 def createTable():
     Base.metadata.create_all(ENGINE)
 
-# def get_wine_type(wine_type):
-#     cursor = connect()
-#     query = """SELECT varietal FROM wineobject WHERE wine_type = ?;"""
+def get_wine_types(wine_type):
+    cursor = connect()
+    wine_type = wine_type.capitalize()
+    varietals = dbsession.query(WineObject).filter_by(wine_type=wine_type).all()
+    return varietals
     
 def connect():
     global dbsession

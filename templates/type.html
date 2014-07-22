@@ -1,4 +1,26 @@
 {% extends 'base.html' %}
 {% block body %}
-<h2>{{ display_something.wine_type }}</h2>
-<div class="product carousel goes here" src="something"></div>
+
+<h5>Scroll through and select a varietal:</h5>
+
+<div class="elastislide-wrapper elastislide-horizontal">
+    <div class="elastislide-carousel">
+<ul id="carousel" class="elastislide-list">
+    {% for varietal in varietal_object %}
+    <li><a href="#"><img src="/static/img/{{ varietal.img_path }}"></a></li>
+    {% endfor %}
+</ul>
+</div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="/static/css/elastislide.css">
+<script type="text/javascript" src="/static/js/modernizr.custom.17475.js"></script>
+<script type="text/javascript" src="/static/js/jquery.elastislide.js"></script>
+<script type="text/javascript" src="/static/js/jquerypp.custom.js"></script>
+<script>     
+    $( '#carousel' ).elastislide( {
+                minItems : 2
+    } );
+</script>
+
+{% endblock %}
