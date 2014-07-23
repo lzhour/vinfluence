@@ -12,12 +12,12 @@ def open_csv(session):
             wine_object = model.WineObject(
                 wine_type=row[0].decode("latin-1"), 
                 varietal=row[1].decode("latin-1"), 
-                flavor_profile=row[2].decode("latin-1"), 
-                region=row[3].decode("latin-1"), 
-                description=row[4].decode("latin-1"), 
-                cheese_pairing=row[5].decode("latin-1"), 
-                food_pairing=row[6].decode("latin-1"), 
-                fruit_pairing=row[7].decode("latin-1"), 
+                region=row[2].decode("latin-1"), 
+                description=row[3].decode("latin-1"), 
+                cheese_pairing=row[4].decode("latin-1"), 
+                food_pairing=row[5].decode("latin-1"), 
+                fruit_pairing=row[6].decode("latin-1"), 
+                flavor_profile=row[7].decode("latin-1"), 
                 flavor_pairing=row[8].decode("latin-1"), 
                 img_path=img_path_list[i])
 

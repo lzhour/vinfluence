@@ -16,6 +16,11 @@ def show_wine_type(wine_type):
     varietal_list = model.get_wine_types(wine_type)
     return render_template("/type.html", varietal_object=varietal_list)
 
+@app.route("/varietal/<id>")
+def show_varietal_description(id):
+    varietal_description = model.get_varietal(id)
+    return render_template("/varietal.html", varietal_description=varietal_description)
+
 # @app.route("/login")
 # def login():
 #     return render_template("login.html")

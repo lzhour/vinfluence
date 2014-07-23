@@ -3,15 +3,15 @@
 
 <h5>Scroll through and select a varietal:</h5>
 
-<div class="elastislide-wrapper elastislide-horizontal">
+    <div class="elastislide-wrapper elastislide-horizontal">
     <div class="elastislide-carousel">
-<ul id="carousel" class="elastislide-list">
-    {% for varietal in varietal_object %}
-    <li><a href="#"><img src="/static/img/{{ varietal.img_path }}"></a></li>
-    {% endfor %}
-</ul>
-</div>
-</div>
+    <ul id="carousel" class="elastislide-list">
+        {% for varietal in varietal_object %}
+        <li><a href="/varietal/{{ varietal.id }}"><img src="/static/img/{{ varietal.img_path }}"></a></li>
+        {% endfor %}
+    </ul>
+    </div>
+    </div>
 
 <link rel="stylesheet" type="text/css" href="/static/css/elastislide.css">
 <script type="text/javascript" src="/static/js/modernizr.custom.17475.js"></script>
