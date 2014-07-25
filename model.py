@@ -4,6 +4,8 @@ from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship, backref
+from urllib2 import urlopen
+
 
 ENGINE = None
 Session = None
@@ -30,6 +32,7 @@ class WineObject(Base):
     flavor_profile = Column(String(200), nullable=True)
     flavor_pairing = Column(String(200), nullable=True)
     img_path = Column(String(100), nullable=True)
+    api_id = Column(String(50), nullable=True)
 
 def createTable():
     Base.metadata.create_all(ENGINE)
@@ -45,12 +48,21 @@ def get_varietal(wine_id):
     varietal_desc = dbsession.query(WineObject).filter_by(id=wine_id).all()
     return varietal_desc
 
+def get_api_parameters(wine_id):
+    cursor = connect()
+    wine_object = dbsession.query(WineObject).filter_by(id=wine_id).all()
+    return wine_object[0].api_id
+
+def make_api_call(wine_recommendations):
+    wine_recs = urlopen('')
+
 def connect():
     global dbsession
     return dbsession()
 
 def main():
-    createTable()
+    # createTable()
+    pass
     
 if __name__ == "__main__":
     main()

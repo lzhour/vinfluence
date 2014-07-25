@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div>
+<img src="{{ api_request["Products"]["List"][0]["Labels"][0]["Url"] }}" alt="{{ api_request["Products"]["List"][0]["Name"] }}">
+
+</div><a href="/"> {{ api_request["Products"]["List"][0]["Name"] }} 
+</a>
+<div>
+Rating: {{ api_request["Products"]["List"][0]["Ratings"]["HighestScore"] }}
+</div>
+<div>
+Retail Price: ${{ "%.2f"%(api_request["Products"]["List"][0]["PriceRetail"])}}
+</div>
+<div>
+{{ api_request["Products"]["List"][2]["ProductAttributes"][0]["Name"] }}
+</div>
+
+
+
+
+{% endblock %}
