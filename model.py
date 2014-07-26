@@ -5,7 +5,9 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship, backref
 from urllib2 import urlopen
+import requests
 
+API_KEY = 'c02a2b186d8415fbd1ea09519abffa5a'
 
 ENGINE = None
 Session = None
@@ -53,8 +55,12 @@ def get_api_parameters(wine_id):
     wine_object = dbsession.query(WineObject).filter_by(id=wine_id).all()
     return wine_object[0].api_id
 
-def make_api_call(wine_recommendations):
-    wine_recs = urlopen('')
+def make_api_call(wine_id):
+    # varietal_objects = get_varietal(wine_id)
+    parameters = get_api_parameters(wine_id)
+    url = 'http://services.wine.com/api/beta2/service.svc/json/catalog?filter=categories(490+'+parameters+')&filter=rating(93|100)&apikey='+API_KEY
+    api_request = requests.get(url).json()
+    return api_request
 
 def connect():
     global dbsession

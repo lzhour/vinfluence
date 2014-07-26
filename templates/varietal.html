@@ -16,7 +16,24 @@
     <div><b>Fruit and dessert: </b> {{ varietal.fruit_pairing}}</div>
     <div><b>Goes well with: </b> {{ varietal.flavor_pairing}}</div>
 
+{% endfor %}
+  
+
+    {% for wine_rec in api_request["Products"]["List"] %}    
+    <div>
+    <img src="{{ wine_rec["Labels"][0]["Url"] }}" alt="{{ api_request["Products"]["List"][0]["Name"] }}">
+
+    </div><a href="/"> {{ wine_rec["Name"] }} 
+    </a>
+    <div>
+    Rating: {{ wine_rec["Ratings"]["HighestScore"] }}
+    </div>
+    <div>
+    Retail Price: ${{ "%.2f"%(wine_rec["PriceRetail"])}}
+    </div>
+    
 
 {% endfor %}
+
 
 {% endblock %}

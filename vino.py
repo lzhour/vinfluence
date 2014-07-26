@@ -17,29 +17,17 @@ def index():
 @app.route("/type/<wine_type>")
 def show_wine_type(wine_type):
     varietal_list = model.get_wine_types(wine_type)
-    return render_template("/type.html", varietal_object=varietal_list)
+    return render_template("/type.html", varietal_object=varietal_list, wine_type=wine_type)
 
 @app.route("/varietal/<id>")
 def show_varietal_description(id):
     varietal_description = model.get_varietal(id)
-    return render_template("/varietal.html", varietal_description=varietal_description)
-
-@app.route("/test_call/<id>")
-def api_call(id):
-    parameters = model.get_api_parameters(id)
-    url = 'http://services.wine.com/api/beta2/service.svc/json/catalog?filter=categories(490+'+parameters+')&filter=rating(93|100)&apikey='+API_KEY
-    api_request = requests.get(url)
-    # print dir(api_request)
-    # print api_request
-    print api_request.json()
-    # print type(api_request.json())
-    return render_template("/test.html", api_request=api_request.json())
-
+    api_request = model.make_api_call(id)
+    return render_template("/varietal.html", varietal_description=varietal_description, api_request=api_request)
 
 # @app.route("/login")
 # def login():
 #     return render_template("login.html")
-
 
 if __name__ == "__main__":
     app.run(debug = True)
