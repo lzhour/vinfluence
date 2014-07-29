@@ -1,39 +1,74 @@
 {% extends 'base.html' %}
 {% block body %}
 
-<!-- <h1> hello </h1> -->
+<div><img src="/static/img/{{ varietal.img_path }}"></div>
 
-{% for varietal in varietal_description %}
-
-    <div> <img src="/static/img/{{ varietal.img_path }}"></div>
-    <div><b>Typical flavor profile: </b> {{ varietal.flavor_profile}}</div>
-    <div><b>Region(s): </b> {{ varietal.region}}</div>
-    <div><b>A bit about the grape: </b> {{ varietal.description}}</div>
-    <p>
-    <div>How to pair:</div>
-    <div><b>Cheese: </b> {{ varietal.cheese_pairing}}</div>
-    <div><b>Food: </b> {{ varietal.food_pairing}}</div>
-    <div><b>Fruit and dessert: </b> {{ varietal.fruit_pairing}}</div>
-    <div><b>Goes well with: </b> {{ varietal.flavor_pairing}}</div>
-
-{% endfor %}
-  
-
-    {% for wine_rec in api_request["Products"]["List"] %}    
-    <div>
-    <img src="{{ wine_rec["Labels"][0]["Url"] }}" alt="{{ api_request["Products"]["List"][0]["Name"] }}">
-
-    </div><a href="/"> {{ wine_rec["Name"] }} 
-    </a>
-    <div>
-    Rating: {{ wine_rec["Ratings"]["HighestScore"] }}
+<div class="row marketing">
+    <div class="col-lg-6">
+        <h5>FLAVOR PROFILE: <em> {{ varietal.flavor_profile}} </em></h5>
+        <h5>REGION(S): <em> {{ varietal.region}} </em></h5>
+        _________________
+<!--         <h5>A bit about the grape:</h5>
+        <p> {{ varietal.description}} </p> -->
     </div>
-    <div>
-    Retail Price: ${{ "%.2f"%(wine_rec["PriceRetail"])}}
+
+    <div class="col-lg-6">
+        <h3>Pairing Guide:</h3>
+            <h5>CHEESE | <em> {{ varietal.cheese_pairing}} </em></h5>
+            <h5>FOOD | <em> {{ varietal.food_pairing}} </em></h5>
+            <h5>FRUIT &amp DESSERT | <em> {{ varietal.fruit_pairing}} </em></h5>
+            <h5>PAIRS WELL WITH | <em> {{ varietal.flavor_pairing}} </em></h5>
+            _________________
     </div>
+</div>
+
+<!--  <div class="container">
+      Example row of columns
+      <div class="row">
+        <div class="col-md-4">
+<div id="main_left_column">
+    <ul>
+        <li><b>Typical flavor profile: </b> {{ varietal.flavor_profile}}
+        </li>
+        <li><b>Region(s): </b> {{ varietal.region}}
+        </li>
+        <li><b>A bit about the grape: </b> {{ varietal.description}}
+        </li>
+    </ul>
+</div>
+<div id="main_right_column">
+    <ul>
+        
+            <div>How to pair:
+            </div>
+                <div><b>Cheese: </b> {{ varietal.cheese_pairing}}
+                </div>
+                <div><b>Food: </b> {{ varietal.food_pairing}}
+                </div>
+                <div><b>Fruit and dessert: </b> {{ varietal.fruit_pairing}}
+                </div>
+                <div><b>Goes well with: </b> {{ varietal.flavor_pairing}}</div>
+        </div>
+ -->
+<div> 
+    <div> <h3>May we suggest... </h3></div>
+
+        {% for wine_rec in api_request["Products"]["List"][0:5] %}    
+        <div>
+        <img src="{{ wine_rec["Labels"][0]["Url"] }}" alt="{{ api_request["Products"]["List"][0]["Name"] }}">
+
+        </div><a href="/"> {{ wine_rec["Name"] }} 
+        </a>
+        <div>
+        Rating: {{ wine_rec["Ratings"]["HighestScore"] }}
+        </div>
+        <div>
+        Retail Price: ${{ "%.2f"%(wine_rec["PriceRetail"])}}
+        </div>
+        <br>
     
 
 {% endfor %}
 
-
 {% endblock %}
+
