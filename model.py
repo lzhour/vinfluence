@@ -27,7 +27,7 @@ class WineObject(Base):
 
     id = Column(Integer, primary_key = True)
     wine_type = Column(String(64), nullable=True)
-    varietal = Column(String(64), nullable=True)
+    varietal = Column(String(64), nullable=True, unique=True)
     region = Column(String(300), nullable=True)
     description = Column(String(1000), nullable=True)
     cheese_pairing = Column(String(500), nullable=True)
