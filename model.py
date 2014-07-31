@@ -6,13 +6,15 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship, backref
 from urllib2 import urlopen
 import requests
+import os
 
-API_KEY = 'xxxxxxxxxx'
+API_KEY = 'c02a2b186d8415fbd1ea09519abffa5a'
 
 ENGINE = None
 Session = None
 
-ENGINE = create_engine("sqlite:///winelist.db", echo = True)
+DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///winelist.db")
+ENGINE = create_engine(DATABASE_URL, echo = True)
 dbsession = scoped_session(sessionmaker(bind = ENGINE,
                                     autocommit = False,
                                     autoflush = False))
