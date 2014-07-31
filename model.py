@@ -29,7 +29,7 @@ class WineObject(Base):
     wine_type = Column(String(64), nullable=True)
     varietal = Column(String(64), nullable=True)
     region = Column(String(300), nullable=True)
-    description = Column(String(100), nullable=True)
+    description = Column(String(1000), nullable=True)
     cheese_pairing = Column(String(500), nullable=True)
     food_pairing = Column(String(300), nullable=True)
     fruit_pairing = Column(String(200), nullable=True)
