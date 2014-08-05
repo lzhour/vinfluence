@@ -8,7 +8,7 @@ from urllib2 import urlopen
 import requests
 import os
 
-API_KEY = 'c02a2b186d8415fbd1ea09519abffa5a'
+API_KEY = 'APIKEY'
 
 ENGINE = None
 Session = None
