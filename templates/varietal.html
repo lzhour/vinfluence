@@ -19,11 +19,7 @@
 
     <div id="recommend_container"> <h3>May we suggest... </h3>
 
-
-
-
-        {% for wine_rec in api_request["Products"]["List"] %}    
-       
+        {% for wine_rec in api_request["Products"]["List"][0:4] %}    
         <div class="recommend">
             <a href="{{ wine_rec["Url"] }}"><img src="{{ wine_rec["Labels"][0]["Url"] }}" alt="{{ api_request["Products"]["List"][0]["Name"] }}"><br />{{ wine_rec["Name"] }}</a>
             <div>
@@ -33,9 +29,10 @@
                 Retail Price: ${{ "%.2f"%(wine_rec["PriceRetail"])}}
             </div>
         </div>
-
         {% endfor %}
-</div>
+
+    </div>
+
 
 <link rel="stylesheet" type="text/css" href="/static/css/elastislide.css">
 <script type="text/javascript" src="/static/js/modernizr.custom.17475.js"></script>
