@@ -153,4 +153,10 @@
 	background-color: black;
 }
 
-	
+div#promotion {
+    width: 600px;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    margin-left: -300px;
+}

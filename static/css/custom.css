@@ -140,3 +140,22 @@
 		padding: 10px 40px;
 	}
 }
+
+.recommend
+{
+	display: inline-block;
+	margin:3px;
+	width:200px;
+	vertical-align: top;
+}
+
+.recommend img
+{
+	height:80px;
+}
+
+#recommend_container
+{
+	width:80%;
+	margin: 0 auto;
+}

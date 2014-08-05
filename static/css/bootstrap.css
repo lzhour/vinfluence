@@ -1221,7 +1221,7 @@ a.bg-danger:hover {
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 100px;
 }
 ul ul,
 ol ul,
@@ -3159,7 +3159,7 @@ tbody.collapse.in {
 }
 .dropdown-menu > li > a {
   display: block;
-  padding: 3px 20px;
+  padding: 3px 25px;
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
@@ -3209,7 +3209,7 @@ tbody.collapse.in {
 }
 .dropdown-header {
   display: block;
-  padding: 3px 20px;
+  padding: 3px 15px;
   font-size: 12px;
   line-height: 1.42857143;
   color: #777;
@@ -3768,8 +3768,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
+  min-height: 65px;
+  margin-bottom: 1px;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -3929,7 +3929,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 20px;
+  line-height: 35px;
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {

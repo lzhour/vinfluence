@@ -3,10 +3,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="../static/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="../static/css/bootstrap-theme.css"/>
-        <link rel="stylesheet" href="../static/css/bootstrap.css"/>
         <link rel="stylesheet" href="../static/css/bootstrap-theme.min.css"/>
         <link rel="stylesheet" href="../static/css/cover.css"/>
+        <link rel="stylesheet" href="../static/css/custom.css"/>
+        
         <title>VinFluence</title>
 
                  <!--  Nav bar -->
@@ -26,13 +26,33 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Get Started <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="/type/red">Red Wine</a></li>
-                    <li><a href="/type/white">White Wine</a></li>
-                </ul>
-                </ul>
+
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                        <li role="presentation" class="dropdown-header">Wine Type</li>
+                        <li><a href="/type/red">Red Wine</a></li>
+                        <li><a href="/type/white">White Wine</a></li>
+                      
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" class="dropdown-header">Red</li>
+                        <li><a href="/varietal/5"><em>Pinot Noir</em></a></li>
+                        <li><a href="/varietal/6"><em>Merlot</em></a></li>
+                        <li><a href="/varietal/7"><em>Cabernet Sauvignon</em></a></li>
+                        <li><a href="/varietal/8"><em>Syrah</em></a></li>
+                        <li><a href="/varietal/9"><em>Zinfindel</em></a></li>
+
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" class="dropdown-header">White</li>
+                        <li><a href="/varietal/1"><em>Riesling</em></a></li>
+                        <li><a href="/varietal/2"><em>Pinot Grigio</em></a></li>
+                        <li><a href="/varietal/3"><em>Sauvignon Blanc</em></a></li>
+                        <li><a href="/varietal/4"><em>Chardonnay</em></a></li>
+
+
+                  </ul>
+
             </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
 
@@ -52,6 +72,7 @@
               <!--   <p>Footer info <a href="#"</a>, currently <a href="#">static</a>.</p> -->
             </div>
             </div>
+
         </body>
 
 </html>
